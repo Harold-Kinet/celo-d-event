@@ -471,3 +471,102 @@ pm2 logs
 nano routes/users.js 
 pm2 logs
 exit
+ls
+pm2 logs
+nano routes/users.js 
+pm2 logs
+nano routes/users.js 
+pm2 logs
+nano routes/users.js 
+pm2 logs
+git config --global user.name "MayssaTek"
+git config --global user.email "mayssa.tekaya@k2lis.com"
+git init
+git add .
+git commit -m "Contract and APIs Part"
+git remote add origin https://github.com/Harold-Kinet/celo-d-event.git
+git push -u origin master
+git push -f -u origin master
+ls
+nano routes/users.js 
+nano contracts/Devent.sol 
+cat contracts/Devent.sol 
+nano contracts/Devent.sol 
+truffle migrate --network alfajores --reset
+nano contracts/Devent.sol 
+truffle migrate --network alfajores --reset
+nano routes/users.js 
+ls
+exit
+pm2 logs
+nano Controler/DEVENT.js 
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 logs
+nano routes/users.js
+pm2 logs
+nano routes/users.js
+nano contracts/Devent.sol 
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+truffle migrate --network alfajores --reset
+nano routes/users.js
+pm2 logs
+nano contracts/Devent.sol 
+pm2 logs
+nano routes/users.js
+nano contracts/Devent.sol 
+nano routes/users.js
+pm2 logs
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 logs

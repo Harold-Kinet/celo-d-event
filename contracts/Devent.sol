@@ -46,8 +46,9 @@ pragma solidity 0.5.11;
         string email;
         string  country;
         uint posta_Code;
-      //  string preferences;
-       string privateKey;
+       // string preferences;
+        string privateKey;
+     //   string password;
         address userWallet;
        
      }
@@ -102,17 +103,19 @@ mapping(uint => ProUser) public ListProUser;
         string memory email,
         string  memory country,
         uint posta_Code,
-     //   string memory preferences,
-        string memory privateKey,
-        address userWallet) public {
+       // string memory preferences,
+      //  string memory password,
+        address userWallet,
+        string memory privateKey) public {
         ListeUser[ID_UserIndice].ID_User = ID_UserIndice;
         ListeUser[ID_UserIndice].Username = Username;
         ListeUser[ID_UserIndice].email = email;
         ListeUser[ID_UserIndice].country = country;
         ListeUser[ID_UserIndice].posta_Code = posta_Code;
-      //  ListeUser[ID_UserIndice].preferences = preferences;
-        ListeUser[ID_UserIndice].privateKey = privateKey;
+       // ListeUser[ID_UserIndice].preferences = preferences;
+        //ListeUser[ID_UserIndice].password = password;
         ListeUser[ID_UserIndice].userWallet = userWallet;
+        ListeUser[ID_UserIndice].privateKey = privateKey;
         ListeIDUser.push(ID_UserIndice) ;
         ID_UserIndice++;
         }
@@ -134,19 +137,21 @@ mapping(uint => ProUser) public ListProUser;
         string memory ,
         string  memory ,
         uint ,
-        // string memory,
+       // string memory,
+        //string memory ,
         address,
-        string memory 
-         ) {
+        string  memory
+        ) {
           return(   
-        ListeUser[ID_User].Username ,
+              ListeUser[ID_User].Username ,
         ListeUser[ID_User].email,
         ListeUser[ID_User].country ,
         ListeUser[ID_User].posta_Code ,
-      //  ListeUser[ID_User].preferences,
+       // ListeUser[ID_User].preferences,
+        //ListeUser[ID_User].password ,
         ListeUser[ID_User].userWallet,
-        ListeUser[ID_User].privateKey 
-        );
+              ListeUser[ID_User].privateKey
+  );
       }
       
         
@@ -209,21 +214,22 @@ mapping(uint => ProUser) public ListProUser;
         }
         
         function  getproject (uint ID_User , uint indice) view public returns ( 
-     
+     uint,
          string memory ,
          string memory ,
       //   string memory ,
          uint ,
-         uint ,
+        // uint ,
          bool ,
          string memory 
          ) {
-          return(   
+          return(  
+               ListeProjectUser[ID_User][indice].id_project,
              ListeProjectUser[ID_User][indice].project_name ,
              ListeProjectUser[ID_User][indice].project_type ,
           //   ListeProjectUser[ID_User][ProjectIndice].localization ,
              ListeProjectUser[ID_User][indice].start_date,
-             ListeProjectUser[ID_User][indice].end_date,
+           //  ListeProjectUser[ID_User][indice].end_date,
              ListeProjectUser[ID_User][indice].ongoing_project ,
              ListeProjectUser[ID_User][indice].project_description 
            );
@@ -359,40 +365,42 @@ mapping(uint => ProUser) public ListProUser;
                
       }
 
-         function  getTicketUser (uint ID_User, uint indice) view public returns (
+         function  getTicketUser (uint ID_User, uint indice) view public returns (uint,
         string memory ,
         uint ,
         string memory ,
         uint256 ,
-        string memory,
-        string memory 
+        string memory
+      //  string memory 
         ) {
           return(   
+               ListeUserTicket[ID_User][indice].ID_Ticket,
          ListeUserTicket[ID_User][indice].TicketName,
         ListeUserTicket[ID_User][indice].TicketPrice,
         ListeUserTicket[ID_User][indice].TicketDescription,
         ListeUserTicket[ID_User][indice].validity,
-        ListeUserTicket[ID_User][indice].ticketCreator,
-        ListeUserTicket[ID_User][indice].options 
+        ListeUserTicket[ID_User][indice].ticketCreator
+      //  ListeUserTicket[ID_User][indice].options 
 
         );
               
       }
-         function  getTicketProject (uint ID_Project, uint indice) view public returns (
+         function  getTicketProject (uint ID_Project, uint indice) view public returns (uint,
         string memory ,
         uint ,
         string memory ,
         uint256 ,
-        string memory,
-        string memory 
+        string memory
+        //string memory 
         ) {
           return(   
+                ListTicketProject[ID_Project][indice].ID_Ticket,
          ListTicketProject[ID_Project][indice].TicketName,
         ListTicketProject[ID_Project][indice].TicketPrice,
         ListTicketProject[ID_Project][indice].TicketDescription,
         ListTicketProject[ID_Project][indice].validity,
-        ListTicketProject[ID_Project][indice].ticketCreator,
-        ListTicketProject[ID_Project][indice].options 
+        ListTicketProject[ID_Project][indice].ticketCreator
+      //  ListTicketProject[ID_Project][indice].options 
 
         );
               
@@ -407,7 +415,7 @@ mapping(uint => ProUser) public ListProUser;
 
       }
       
-      function getParticipantByIndex (uint index , uint id_project) view public returns (uint  , uint ){
+          function getParticipantByIndex (uint index , uint id_project) view public returns (uint  , uint ){
           uint ID_User =  ListeRules[id_project].Listecoorganisateur[index] ;
           return(ID_User,ListeRules[id_project].coorganisateur_Dist[ID_User]);
           
@@ -424,6 +432,12 @@ mapping(uint => ProUser) public ListProUser;
         return  NumberProjectUser[ID_User] ;  
       }
       
+      function getCoOrganizateur(uint id_project,uint indice) view public returns(uint, uint)
+      {
+          uint coOrg =ListeRules[id_project].Listecoorganisateur[indice];
+          return(coOrg, ListeRules[id_project].coorganisateur_Dist[coOrg]);
+      }
+      
       
        function nbrTicketUser(uint ID_User) view public returns(uint)
       {
@@ -437,3 +451,4 @@ mapping(uint => ProUser) public ListProUser;
       }
      
  }
+ 

@@ -1,0 +1,473 @@
+var express = require("express");
+var router = express.Router();
+
+const ContractKit = require("@celo/contractkit");
+//const HelloWorld = require("../build/contracts/HelloWorld.json");
+
+const kit = ContractKit.newKit("https://alfajores-forno.celo-testnet.org");
+var Web3 = require("web3");
+web3 = new Web3(
+  new Web3.providers.HttpProvider("https://alfajores-forno.celo-testnet.org")
+);
+var dep = new kit.web3.eth.Contract(
+[
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "ListeUser",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "ID_User",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "Username",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "country",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "posta_Code",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "preferences",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "userWallet",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "NumberTickettUser",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "ID_User",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "indice",
+				"type": "uint256"
+			}
+		],
+		"name": "getproject",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "rulesIndice",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_Companyname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_Companyemail",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_Identification",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_CompanyAddress",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_CompanyArea",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_CompanyBankAccount",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "_ProWallet",
+				"type": "address"
+			}
+		],
+		"name": "addProUser",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "ID_Project",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "indice",
+				"type": "uint256"
+			}
+		],
+		"name": "getTicketProject",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			var express = require("express");
+var router = express.Router();
+
+const ContractKit = require("@celo/contractkit");
+//const HelloWorld = require("../build/contracts/HelloWorld.json");
+
+const kit = ContractKit.newKit("https://alfajores-forno.celo-testnet.org");
+var Web3 = require("web3");
+web3 = new Web3(
+  new Web3.providers.HttpProvider("https://alfajores-forno.celo-testnet.org")
+);
+var dep = new kit.web3.eth.Contract(
+[
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "ListeUser",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "ID_User",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "Username",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "country",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "posta_Code",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "preferences",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "userWallet",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "NumberTickettUser",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "ID_User",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "indice",
+				"type": "uint256"
+			}
+		],
+		"name": "getproject",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "rulesIndice",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_Companyname",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_Companyemail",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_Identification",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_CompanyAddress",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_CompanyArea",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_CompanyBankAccount",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "_ProWallet",
+				"type": "address"
+			}
+		],
+		"name": "addProUser",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "ID_Project",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "indice",
+				"type": "uint256"
+			}
+		],
+		"name": "getTicketProject",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			

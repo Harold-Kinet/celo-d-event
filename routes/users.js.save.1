@@ -1,3 +1,6 @@
+var express = require("express");
+var router = express.Router();
+
 const ContractKit = require("@celo/contractkit");
 //const HelloWorld = require("../build/contracts/HelloWorld.json");
 
@@ -46,7 +49,7 @@ var dep = new kit.web3.eth.Contract(
 			},
 			{
 				"internalType": "string",
-				"name": "privateKey",
+				"name": "preferences",
 				"type": "string"
 			},
 			{
@@ -626,46 +629,6 @@ var dep = new kit.web3.eth.Contract(
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "Username",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "email",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "country",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "posta_Code",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "userWallet",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "privateKey",
-				"type": "string"
-			}
-		],
-		"name": "CreateUser",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"constant": true,
 		"inputs": [
 			{
@@ -718,14 +681,14 @@ var dep = new kit.web3.eth.Contract(
 				"type": "uint256"
 			},
 			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
-			{
 				"internalType": "string",
 				"name": "",
 				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
 			}
 		],
 		"payable": false,
@@ -922,6 +885,46 @@ var dep = new kit.web3.eth.Contract(
 		],
 		"payable": false,
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "Username",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "email",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "country",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "posta_Code",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "preferences",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "userWallet",
+				"type": "address"
+			}
+		],
+		"name": "CreateUser",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -1279,28 +1282,194 @@ var dep = new kit.web3.eth.Contract(
 		"type": "function"
 	}
 ],
-  "0xb58318591Cdf2C0F0e9324106732dF8a4e9D0a54"
+  "0xc6aA669aaB3Cf29A9b581C2dc043A0e2318c9B4d"
 );
 
-const getAccount = require("./getAccount").getAccount;
-/*
-async function test() {
-  dep.methods.getUser(1).call(function (error, result) {
-    console.log(result);
-  });}
-async function test2() {
+const getAccount = require("../getAccount").getAccount;
+
+/* GET users listing. */
+router.post("/CreateUser", async function (req, res, next) {
   let account = await getAccount();
 
   kit.addAccount(account.privateKey);
 
-  const d = await dep.methods.CreateUser( req.body.Username,
+  const d = await dep.methods.CreateUser(
+    req.body.Username,
     req.body.email,
     req.body.country,
     req.body.posta_Code,
-        req.body.preferences,
-//    req.body.password,
-    req.body.userWallet);
-;
+    req.body.privateKey,
+    // req.body.preferences,
+    req.body.userWallet
+  );
+  const tx = await kit.sendTransactionObject(d, {
+    from: account.address,
+  });
+
+  const receipt = await tx.waitReceipt();
+
+  res.send(receipt);
+});
+
+router.get("/getUser", async function (req, res, next) {
+  dep.methods.getUser(req.query.ID_User).call(function (error, result) {
+    res.send(result);
+  });
+});
+router.post("/CreateProject", async function (req, res, next) {
+  let account = await getAccount();
+
+  kit.addAccount(account.privateKey);
+  const d = await dep.methods.CreateProject(
+    req.body.ID_User,
+    req.body.project_name,
+    req.body.project_type,
+    req.body.localization,
+    req.body.start_date,
+    req.body.end_date,
+    req.body.ongoing_project,
+    req.body.project_description,
+    req.body.project_contact_information,
+    req.body.tickets_total_supply
+  );
+  const tx = await kit.sendTransactionObject(d, {
+    from: account.address,
+  });
+
+  const receipt = await tx.waitReceipt();
+
+  res.send(receipt);
+});
+router.get("/getproject", async function (req, res, next) {
+  dep.methods
+    .getproject(req.query.ID_User, req.query.indice)
+    .call(function (error, result) {
+      res.send(result);
+    });
+});
+router.post("/CreateRules", async function (req, res, next) {
+  let account = await getAccount();
+
+  kit.addAccount(account.privateKey);
+
+  const d = await dep.methods.CreateRules(
+    req.body.id_project,
+    req.body.organizer,
+    req.body.tickets_sale_rev,
+    req.body.total_tickets_sale_rev,
+    req.body.signed_or
+  );
+  const tx = await kit.sendTransactionObject(d, {
+    from: account.address,
+  });
+
+  const receipt = await tx.waitReceipt();
+
+  res.send(receipt);
+});
+
+router.get("/getRules", async function (req, res, next) {
+  dep.methods.getRules(req.query.id_project).call(function (error, result) {
+    res.send(result);
+  });
+});
+
+router.post("/addProUser", async function (req, res, next) {
+  let account = await getAccount();
+
+  kit.addAccount(account.privateKey);
+
+  const d = await dep.methods.addProUser(
+    req.body.Companyname,
+    req.body._Companyemail,
+    req.body.Identification,
+    req.body._CompanyAddress,
+    req.body._CompanyArea,
+    req.body._CompanyBankAccount,
+    req.body._ProWallet
+  );
+  const tx = await kit.sendTransactionObject(d, {
+    from: account.address,
+  });
+
+  const receipt = await tx.waitReceipt();
+
+  res.send(receipt);
+});
+
+router.get("/getUserPro", async function (req, res, next) {
+  dep.methods.getUserPro(req.query.ID_UserPro).call(function (error, result) {
+    res.send(result);
+  });
+});
+
+router.post("/addTicket", async function (req, res, next) {
+
+  let account = await getAccount();
+
+  dep.methods.getUser(req.query.ID_User).call(async function (error, result) {
+    kit.addAccount(result["5"]);
+    const stabletoken = await kit.contracts.getStableToken();
+
+    let tx2 = await stabletoken
+      .transfer(account.address, req.body._TicketPrice)
+      .send({ from: result["4"] });
+
+    let receipt2 = await tx2.waitReceipt();
+
+    console.log("Transaction receipt: %o", receipt2);
+
+    let balance = await stabletoken.balanceOf(account.address);
+
+    console.log(`Your new account balance: ${balance.toString()}`);
+  });
+
+  kit.addAccount(account.privateKey);
+
+  const d = await dep.methods.addTicket(
+    req.body._ID_User,
+    req.body._ID_Project,
+    req.body._TicketName,
+    req.body._TicketPrice,
+    req.body._TicketDescription,
+    req.body._validity,
+    req.body._ticketCreator,
+    req.body._ticketOwner,
+    req.body._options
+  );
+  const tx = await kit.sendTransactionObject(d, {
+    from: account.address,
+  });
+
+  const receipt = await tx.waitReceipt();
+
+  res.send(receipt);
+});
+
+router.get("/getTicketUser", async function (req, res, next) {
+  dep.methods
+    .getTicketUser(req.query.ID_User, req.query.indice)
+    .call(function (error, result) {
+      res.send(result);
+    });
+});
+
+router.get("/getTicketProject", async function (req, res, next) {
+  dep.methods
+    .getTicketProject(req.query.ID_Project, req.query.indice)
+    .call(function (error, result) {
+      res.send(result);
+    });
+});
+
+router.post("/confirmParticipation", async function (req, res, next) {
+  let account = await getAccount();
+
+  kit.addAccount(account.privateKey);
+  const d = await dep.methods.participation(
+    req.body.ID_User,
+    req.body.id_project,
+    req.body.Por_distribution);
 
   const tx = await kit.sendTransactionObject(d, {
     from: account.address,
@@ -1308,41 +1477,8 @@ async function test2() {
 
   const receipt = await tx.waitReceipt();
 
-  console.log(receipt);
-}
-
-// const getAccount = require("./getAccount").getAccount;
-//return number of transfers
-
-exports.CreateUser =async (req, res) => {
-test2()
-};
-	
-exports.getUser = (req, res) => {
-  dep.methods.getUser(req.query.ID_User).call(function (error, result) {
-    res.send(result);
-  });
-};
-
-//exports.CreateProject = (req, res) => {};
-
-//exports.getproject = (req, res) => {};
-
-exports.CreateRules = (req, res) => {};
-
-exports.getRules = (req, res) => {};
-
-exports.addProUser = (req, res) => {};
-
-exports.addTicket = (req, res) => {};
-
-exports.getUserPro = (req, res) => {};
-
-exports.getTicketUser = (req, res) => {};
-
-exports.getTicketProject = (req, res) => {};
-*/
-
-
-          
+  res.send(receipt);
+});
+router.post("/Revenue
+module.exports = router;
 
