@@ -246,6 +246,36 @@ var dep = new kit.web3.eth.Contract(
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "id_project",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "organizer",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "tickets_sale_rev",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "total_tickets_sale_rev",
+				"type": "uint256"
+			}
+		],
+		"name": "CreateRules",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"constant": true,
 		"inputs": [
 			{
@@ -345,6 +375,26 @@ var dep = new kit.web3.eth.Contract(
 		],
 		"payable": false,
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "ID_User",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "id_project",
+				"type": "uint256"
+			}
+		],
+		"name": "ConfirmeParticipation",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -481,41 +531,6 @@ var dep = new kit.web3.eth.Contract(
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "id_project",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "organizer",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "tickets_sale_rev",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "total_tickets_sale_rev",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "signed_or",
-				"type": "string"
-			}
-		],
-		"name": "CreateRules",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"constant": true,
 		"inputs": [
 			{
@@ -566,11 +581,6 @@ var dep = new kit.web3.eth.Contract(
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
 			}
 		],
 		"payable": false,
@@ -957,11 +967,6 @@ var dep = new kit.web3.eth.Contract(
 				"internalType": "uint256",
 				"name": "total_tickets_sale_rev",
 				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "signed_or",
-				"type": "string"
 			}
 		],
 		"payable": false,
@@ -1014,6 +1019,11 @@ var dep = new kit.web3.eth.Contract(
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
 			}
 		],
 		"payable": false,
@@ -1282,7 +1292,7 @@ var dep = new kit.web3.eth.Contract(
 		"type": "function"
 	}
 ],
-  "0xfBD120E1FA3f909E86bC35b1fF73B11a771BDBf9"
+  "0xECb72727C37Ba5970Fc42E755aB3FDAfCcF6C0f2"
 );
 
 const getAccount = require("../getAccount").getAccount;
@@ -1352,13 +1362,26 @@ router.post("/CreateRules", async function (req, res, next) {
 
   kit.addAccount(account.privateKey);
 
+var organizersList = req.body.OrganizersList;
+console.log(organizersList)
+console.log(organizersList.length)
+for (let p = 0; p < organizersList.length; p++) {
+  const dd = await dep.methods.participation(
+    organizersList[p].ID_User,
+    req.body.id_project,
+    organizersList[p].Por_distribution);
+ const tx = await kit.sendTransactionObject(dd, {
+    from: account.address,
+  });
+
+  const receipt2 = await tx.waitReceipt();
+
+}
   const d = await dep.methods.CreateRules(
     req.body.id_project,
     req.body.organizer,
     req.body.tickets_sale_rev,
-    req.body.total_tickets_sale_rev,
-    req.body.signed_or
-  );
+    req.body.total_tickets_sale_rev  );
   const tx = await kit.sendTransactionObject(d, {
     from: account.address,
   });
@@ -1407,7 +1430,7 @@ router.post("/addTicket", async function (req, res, next) {
 
   let account = await getAccount();
 
-  dep.methods.getUser(req.query.ID_User).call(async function (error, result) {
+  dep.methods.getUser(req.body._ID_User).call(async function (error, result) {
 console.log(result["5"]);
     kit.addAccount(result["5"]);
 
@@ -1437,10 +1460,10 @@ console.log(result["5"]);
     req.body._TicketDescription,
     req.body._validity,
     req.body._ticketCreator,
-    req.body._ticketOwner,
+    req.body._ID_User,
     req.body._options
   );
-  const tx = await kit.sendTransactionObject(d, {
+	  const tx = await kit.sendTransactionObject(d, {
     from: account.address,
   });
 
@@ -1469,10 +1492,9 @@ router.post("/confirmParticipation", async function (req, res, next) {
   let account = await getAccount();
 
   kit.addAccount(account.privateKey);
-  const d = await dep.methods.participation(
+  const d = await dep.methods.ConfirmeParticipation(
     req.body.ID_User,
-    req.body.id_project,
-    req.body.Por_distribution);
+    req.body.id_project);
 
   const tx = await kit.sendTransactionObject(d, {
     from: account.address,
@@ -1482,29 +1504,30 @@ router.post("/confirmParticipation", async function (req, res, next) {
 
   res.send(receipt);
 });
-router.get("/revenueCoCorganizer", async function (req, res, next) {
+router.post("/revenueCoCorganizer", async function (req, res, next) {
   let account = await getAccount();
 
 //kit.addAccount(account.privateKey);
 
 const liste = []
 await  dep.methods.RevenuePerCoOr(
-    req.query.id_project,
-    req.query.indice,
-    req.query.id_user).call(async function (error, result1) {
+    req.body.id_project,
+    req.body.indice,
+    req.body.id_user).call(async function (error, result1) {
       if(result1 =true)
 	{ 
-		await dep.methods.getLengthPart(req.query.id_project).call(async function (error, result2) {
+		await dep.methods.getLengthPart(req.body.id_project).call(async function (error, result2) {
 		for(let i=0; i<=result2-1; i++)
 		{   
 			await dep.methods.getCoOrganizateur(
-   			 req.query.id_project, req.query.indice
+   			 req.body.id_project, i
   			  ).call(async function (error, result3) {
 //	console.log(result3)
  dep.methods.getUserPro(result3["0"]).call(async function (error, result4) {
 //console.log(result4)
-dep.methods.getRules(req.query.id_project).call(async function (error, result5) {
-    kit.addAccount(account.privateKey);
+dep.methods.getRules(req.body.id_project).call(async function (error, result5) {
+if(result3["2"]= true) {  
+  kit.addAccount(account.privateKey);
     const stabletoken = await kit.contracts.getStableToken();
 
     let tx2 = await stabletoken
@@ -1513,6 +1536,7 @@ dep.methods.getRules(req.query.id_project).call(async function (error, result5) 
 
     let receipt2 = await tx2.waitReceipt();
 console.log(receipt2)
+}
 });
    
   });
@@ -1527,7 +1551,37 @@ res.send(result2)
 	else { console.log("nothing")}
     });
 });
+/*
+router.post("/Participation", async function (req, res, next) {
+  let account = await getAccount();
 
+  kit.addAccount(account.privateKey);
+  const d = await dep.methods.participation(
+    req.body.ID_User,
+    req.body.id_project,
+    req.body.Por_distribution);
+
+  const tx = await kit.sendTransactionObject(d, {
+    from: account.address,
+  });
+
+  const receipt = await tx.waitReceipt();
+
+  res.send(receipt);
+});
+*/
+router.get("/balanceOf", async function (req, res, next) {
+ const stabletoken = await kit.contracts.getStableToken();
+   let balance = await stabletoken.balanceOf(req.query.address)
+
+    console.log(`Your new account balance: ${balance.toString()}`);
+
+});
+router.get("/getLengthOrganizer", async function (req, res, next) {
+  dep.methods.getLengthPart(req.query.id_project).call(function (error, result) {
+    res.send(result);
+  });
+});
 
 module.exports = router;
 

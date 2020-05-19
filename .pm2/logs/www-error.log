@@ -7196,3 +7196,149 @@ Error: Error: invalid address (arg="userWallet", coderType="address", value="0xc
     at step (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:44:23)
     at Object.throw (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:25:53)
     at rejected (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:17:65)
+TypeError: dep.methods.ConfirmeParticipation is not a function
+    at /home/ubuntu/routes/users.js:1485:31
+TypeError: dep.methods.ConfirmeParticipation is not a function
+    at /home/ubuntu/routes/users.js:1485:31
+Error: Gas estimation failed: Could not decode transaction failure reason
+    at ContractKit.<anonymous> (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:395:31)
+    at step (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:44:23)
+    at Object.throw (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:25:53)
+    at rejected (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:17:65)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error: Gas estimation failed: Could not decode transaction failure reason
+    at ContractKit.<anonymous> (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:395:31)
+    at step (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:44:23)
+    at Object.throw (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:25:53)
+    at rejected (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:17:65)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error: Gas estimation failed: Could not decode transaction failure reason
+    at ContractKit.<anonymous> (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:395:31)
+    at step (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:44:23)
+    at Object.throw (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:25:53)
+    at rejected (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:17:65)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error: Gas estimation failed: Could not decode transaction failure reason
+    at ContractKit.<anonymous> (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:395:31)
+    at step (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:44:23)
+    at Object.throw (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:25:53)
+    at rejected (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:17:65)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error: Invalid number of parameters for "CreateRules". Got 5 expected 4!
+    at Object.InvalidNumberOfParams (/home/ubuntu/node_modules/web3-core-helpers/src/errors.js:32:16)
+    at Object._createTxObject (/home/ubuntu/node_modules/web3-eth-contract/src/index.js:705:22)
+    at /home/ubuntu/routes/users.js:1373:33
+Error: Error: invalid number value (arg="value", coderType="uint256", value=62.5)
+    at ContractKit.<anonymous> (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:395:31)
+    at step (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:44:23)
+    at Object.throw (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:25:53)
+    at rejected (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:17:65)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error: Error: invalid number value (arg="value", coderType="uint256", value=62.5)
+    at ContractKit.<anonymous> (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:395:31)
+    at step (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:44:23)
+    at Object.throw (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:25:53)
+    at rejected (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:17:65)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error: Error: invalid number value (arg="value", coderType="uint256", value=62.5)
+    at ContractKit.<anonymous> (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:395:31)
+    at step (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:44:23)
+    at Object.throw (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:25:53)
+    at rejected (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:17:65)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error: Error: invalid number value (arg="value", coderType="uint256", value=62.5)
+    at ContractKit.<anonymous> (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:395:31)
+    at step (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:44:23)
+    at Object.throw (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:25:53)
+    at rejected (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:17:65)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error: Gas estimation failed: Could not decode transaction failure reason
+    at ContractKit.<anonymous> (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:395:31)
+    at step (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:44:23)
+    at Object.throw (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:25:53)
+    at rejected (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:17:65)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error: Gas estimation failed: Could not decode transaction failure reason
+    at ContractKit.<anonymous> (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:395:31)
+    at step (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:44:23)
+    at Object.throw (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:25:53)
+    at rejected (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:17:65)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error: Error: invalid number value (arg="ID_User", coderType="uint256", value=undefined)
+    at ContractKit.<anonymous> (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:395:31)
+    at step (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:44:23)
+    at Object.throw (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:25:53)
+    at rejected (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:17:65)
+SyntaxError: Unexpected token o in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at /home/ubuntu/routes/users.js:1360:27
+SyntaxError: Unexpected token o in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at /home/ubuntu/routes/users.js:1360:27
+SyntaxError: Unexpected token o in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at /home/ubuntu/routes/users.js:1360:27
+SyntaxError: Unexpected token o in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at /home/ubuntu/routes/users.js:1360:27
+SyntaxError: Unexpected token o in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at /home/ubuntu/routes/users.js:1360:27
+SyntaxError: Unexpected token o in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at /home/ubuntu/routes/users.js:1360:27
+SyntaxError: Unexpected token o in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at /home/ubuntu/routes/users.js:1360:27
+SyntaxError: Unexpected token o in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at /home/ubuntu/routes/users.js:1361:27
+Error: Error: invalid number value (arg="ID_User", coderType="uint256", value=undefined)
+    at ContractKit.<anonymous> (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:395:31)
+    at step (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:44:23)
+    at Object.throw (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:25:53)
+    at rejected (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:17:65)
+Error: Gas estimation failed: Could not decode transaction failure reason
+    at ContractKit.<anonymous> (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:395:31)
+    at step (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:44:23)
+    at Object.throw (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:25:53)
+    at rejected (/home/ubuntu/node_modules/@celo/contractkit/lib/kit.js:17:65)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+{ Error: invalid number value (arg="indice", coderType="uint256", value=undefined)
+    at Object.throwError (/home/ubuntu/node_modules/ethers/utils/errors.js:68:17)
+    at CoderNumber.encode (/home/ubuntu/node_modules/ethers/utils/abi-coder.js:353:20)
+    at /home/ubuntu/node_modules/ethers/utils/abi-coder.js:605:59
+    at Array.forEach (<anonymous>)
+    at pack (/home/ubuntu/node_modules/ethers/utils/abi-coder.js:604:12)
+    at CoderTuple.encode (/home/ubuntu/node_modules/ethers/utils/abi-coder.js:764:16)
+    at AbiCoder.encode (/home/ubuntu/node_modules/ethers/utils/abi-coder.js:897:77)
+    at ABICoder.encodeParameters (/home/ubuntu/node_modules/web3-eth-abi/src/index.js:96:27)
+    at /home/ubuntu/node_modules/web3-eth-contract/src/index.js:432:24
+    at Array.map (<anonymous>)
+    at Object._encodeMethodABI (/home/ubuntu/node_modules/web3-eth-contract/src/index.js:431:12)
+    at Object._processExecuteArguments (/home/ubuntu/node_modules/web3-eth-contract/src/index.js:747:39)
+    at Object._executeMethod (/home/ubuntu/node_modules/web3-eth-contract/src/index.js:772:54)
+    at /home/ubuntu/routes/users.js:1516:23
+  reason: 'invalid number value',
+  code: 'INVALID_ARGUMENT',
+  arg: 'indice',
+  coderType: 'uint256',
+  value: undefined }
+Error: Invalid JSON RPC response: {"id":94,"jsonrpc":"2.0"}
+    at Object.InvalidResponse (/home/ubuntu/node_modules/web3-core-helpers/src/errors.js:42:16)
+    at /home/ubuntu/node_modules/web3-core-requestmanager/src/index.js:144:36
+    at decoratedCallback (/home/ubuntu/node_modules/@celo/contractkit/lib/providers/celo-provider.js:101:13)
+    at /home/ubuntu/node_modules/@celo/contractkit/lib/utils/rpc-caller.js:50:13
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error: Invalid JSON RPC response: {"id":110,"jsonrpc":"2.0"}
+    at Object.InvalidResponse (/home/ubuntu/node_modules/web3-core-helpers/src/errors.js:42:16)
+    at /home/ubuntu/node_modules/web3-core-requestmanager/src/index.js:144:36
+    at decoratedCallback (/home/ubuntu/node_modules/@celo/contractkit/lib/providers/celo-provider.js:101:13)
+    at /home/ubuntu/node_modules/@celo/contractkit/lib/utils/rpc-caller.js:50:13
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+Error: Invalid JSON RPC response: {"id":14,"jsonrpc":"2.0"}
+    at Object.InvalidResponse (/home/ubuntu/node_modules/web3-core-helpers/src/errors.js:42:16)
+    at /home/ubuntu/node_modules/web3-core-requestmanager/src/index.js:144:36
+    at decoratedCallback (/home/ubuntu/node_modules/@celo/contractkit/lib/providers/celo-provider.js:101:13)
+    at /home/ubuntu/node_modules/@celo/contractkit/lib/utils/rpc-caller.js:50:13
+    at process._tickCallback (internal/process/next_tick.js:68:7)

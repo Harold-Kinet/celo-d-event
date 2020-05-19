@@ -570,3 +570,140 @@ pm2 restart all
 pm2 logs
 nano routes/users.js
 pm2 logs
+pm2 lgos
+pm2 logs
+nano routes/users.js 
+pm2 restart all
+pm2 logs
+nano routes/users.js 
+pm2 restart all
+pm2 logs
+nano routes/users.js 
+pm2 restart all
+pm2 logs
+nano routes/users.js 
+pm2 restart all
+pm2 logs
+nano routes/users.js 
+pm2 restart all
+pm2 logs
+pm2 restart all
+nano routes/users.js 
+pm2 restart all
+pm2 logs
+nano routes/users.js 
+pm2 restart all
+pm2 logs
+nano routes/users.js 
+pm2 restart all
+pm2 logs
+nano routes/users.js 
+pm2 restart all
+pm2 logs
+nano contracts/Devent.sol 
+cat contracts/Devent.sol 
+nano Controler/DEVENT.js 
+pm2 logs
+nano Controler/DEVENT.js 
+nano routes/users.js
+nano Controler/DEVENT.js 
+nano routes/users.js
+pm2 restart all
+pm2 logs
+pm2 restart all
+nano routes/users.js
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano contracts/Devent.sol 
+truffle migrate --network alfajores --reset
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js*
+pm2 restart all
+pm2 logs
+nano routes/users.js*
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano contracts/Devent.sol 
+truffle migrate --network alfajores --reset
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+history | grep git
+git add .
+it commit " version 1"
+git commit -m " version 1"
+git remote add origin https://github.com/Harold-Kinet/celo-d-event.git
+git push -u origin master
+ls
+exit
+ls
+exit
+ls
+exit
+ls
+nano Controler/DEVENT.js 
+nano routes/users.js
+cat contracts/Devent.sol 
+nano contracts/Devent.sol 
+history 
+history | grep migrate
+truffle migrate --network alfajores --reset
+nano routes/users.js
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+nano contracts/Devent.sol 
+nano routes/users.js
+pm2 restart all
+ls
+exit
+ls
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano contracts/Devent.sol 
+cat contracts/Devent.sol 
+nano routes/users.js
+pm2  restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+nano contracts/Devent.sol 
+cat contracts/Devent.sol 
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart 0
+pm2 logs
+truffle migrate --network alfajores --reset
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logw
+pm2 logs
+nano routes/users.js
+pm2 logs
+nano routes/users.js
+pm2 restart all
+nano routes/users.js
+pm2 restart all

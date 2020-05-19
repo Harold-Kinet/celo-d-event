@@ -6,11 +6,12 @@ pragma solidity 0.5.11;
          uint id_rules;
          uint organizer;
          mapping(uint => uint)  coorganisateur_Dist;
+         mapping(uint => bool)  signed_or;
          uint[]  Listecoorganisateur;
   
          uint tickets_sale_rev;
          uint256 total_tickets_sale_rev;
-         string signed_or;
+       
      }
 
   
@@ -238,13 +239,13 @@ mapping(uint => ProUser) public ListProUser;
                 uint256 public rulesIndice = 1;
 
            
-    function CreateRules ( uint id_project, uint organizer, uint tickets_sale_rev, uint256 total_tickets_sale_rev, string memory signed_or) public
+    function CreateRules ( uint id_project, uint organizer, uint tickets_sale_rev, uint256 total_tickets_sale_rev) public
     {
         ListeRules[id_project].id_rules = rulesIndice;
         ListeRules[id_project].organizer = organizer;
         ListeRules[id_project].tickets_sale_rev = tickets_sale_rev;
         ListeRules[id_project].total_tickets_sale_rev = total_tickets_sale_rev;
-        ListeRules[id_project].signed_or = signed_or;
+        
 
         ListIDRules.push(rulesIndice) ;
         ID_UserIndice++;
@@ -255,14 +256,12 @@ mapping(uint => ProUser) public ListProUser;
          uint ,
          uint ,
          uint ,
-         uint256 ,
-         string memory ) {
+         uint256  ) {
           return(   
              ListeRules[id_project].id_rules,
         ListeRules[id_project].organizer,
         ListeRules[id_project].tickets_sale_rev ,
-        ListeRules[id_project].total_tickets_sale_rev ,
-        ListeRules[id_project].signed_or);
+        ListeRules[id_project].total_tickets_sale_rev );
       }
       
        uint public ID_ProUser = 1;
@@ -415,6 +414,12 @@ mapping(uint => ProUser) public ListProUser;
 
       }
       
+       function ConfirmeParticipation (uint ID_User , uint id_project ) public {
+                  ListeRules[id_project].signed_or[ID_User]= true;
+
+
+      }
+      
           function getParticipantByIndex (uint index , uint id_project) view public returns (uint  , uint ){
           uint ID_User =  ListeRules[id_project].Listecoorganisateur[index] ;
           return(ID_User,ListeRules[id_project].coorganisateur_Dist[ID_User]);
@@ -432,10 +437,10 @@ mapping(uint => ProUser) public ListProUser;
         return  NumberProjectUser[ID_User] ;  
       }
       
-      function getCoOrganizateur(uint id_project,uint indice) view public returns(uint, uint)
+      function getCoOrganizateur(uint id_project,uint indice) view public returns(uint, uint, bool)
       {
           uint coOrg =ListeRules[id_project].Listecoorganisateur[indice];
-          return(coOrg, ListeRules[id_project].coorganisateur_Dist[coOrg]);
+          return(coOrg, ListeRules[id_project].coorganisateur_Dist[coOrg], ListeRules[id_project].signed_or[coOrg]);
       }
       
       
@@ -452,3 +457,5 @@ mapping(uint => ProUser) public ListProUser;
      
  }
  
+
+
