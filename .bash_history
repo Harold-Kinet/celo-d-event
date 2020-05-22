@@ -707,3 +707,185 @@ nano routes/users.js
 pm2 restart all
 nano routes/users.js
 pm2 restart all
+ls
+nano routes/users.js
+pm2 restart all
+ls
+nano routes/users.js
+pm2 logs
+nano routes/users.js
+pm2 logs
+nano routes/users.js
+pm2 logs
+nano routes/users.js
+pm2 logs
+nano routes/users.js
+pm2 restart all
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 logs
+nano routes/users.js
+nano contracts/Devent.sol 
+truffle migrate --network alfajores --reset
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+nano routes/users.js
+pm2 logs
+nano routes/users.js
+pm2 restart all
+history |grep git
+git agg .
+git add .
+git commit -m "version 1.1"
+remote add origin https://github.com/Harold-Kinet/celo-d-event.git
+git remote add origin https://github.com/Harold-Kinet/celo-d-event.git
+ls
+exit
+ls
+nano routes/users.js
+pm2 restart all
+nano routes/users.js
+pm2 restart all
+ls
+pm2 logs
+ls
+cat getAccount.js 
+ls
+node getAccount.js 
+ls
+cd client/
+ls
+cd ..
+ls
+cd ..
+ls
+cd ubuntu/
+ls
+ll 
+gedit .secret 
+cat .secret 
+ls
+cat app.js 
+ls
+cd routes/
+ls
+cat index.js 
+exit
+ls
+pm2 logs
+ls
+cd routes/
+ls
+cat index.js 
+ls
+cat users.js
+ls
+cd ..
+ls
+cd routes/
+ls
+cat index.js 
+pm2 logs
+ls
+cat index.js 
+nao index.js 
+nano index.js 
+ls
+nano users.js
+pm2 restart all
+pm2 logs
+ls
+nano users.js
+pm2 restart all
+pm2 logs
+nano index.js 
+nano users.js
+pm2 restart all
+pm2 logs
+nano users.js
+cat index.js 
+nano index.js 
+pm2 restart all
+pm2 logs
+ls
+cd ..
+ls
+cd routes/
+nano users.js
+nano index.js 
+pm2 restart all
+pm2 logs
+ls
+exit
+pm2 logs
+ls
+exit
+pm2 logs 0
+nano routes/users.js
+pm2 logs 0
+ls
+nano routes/users.js
+pm logs
+pm2 logs
+pm2 logs 
+nano routes/users.js
+nano getAccount.js 
+nano routes/users.js
+pm2 logs
+pm2 restart all
+pm2 logs
+pm2 restart all
+pm2 logs
+history | grep migrate
+truffle migrate --network alfajores --reset
+nano routes/users.js
+pm2 restart all
+pm2 logs 
+exit
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 restart all
+pm2 logs
+nano routes/users.js
+pm2 logs 
+eexit
+ls
+pm2 logs
+exitr
+exit

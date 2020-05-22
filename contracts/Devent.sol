@@ -309,11 +309,11 @@ mapping(uint => ProUser) public ListProUser;
         string memory _ticketOwner ,
         string memory _options 
     ) public { 
-        
-         uint total_tickets = ListeProjectUser[_ID_User][NumberTickettUser[_ID_User]].tickets_total_supply;
-            uint nbr_tickets_encours = NumberTicketsProjects[_ID_Project];
+
+        // uint total_tickets = ListeProjectUser[_ID_User][NumberProjectUser[_ID_User]].tickets_total_supply;
+          //  uint nbr_tickets_encours = NumberTicketsProjects[_ID_Project];
             
-        require(total_tickets >= nbr_tickets_encours);
+        //require(total_tickets >= nbr_tickets_encours);
         
         ListeUserTicket[_ID_User][NumberTickettUser[_ID_User]].ID_Ticket = ID_Ticket;
         ListeUserTicket[_ID_User][NumberTickettUser[_ID_User]].TicketName = _TicketName;

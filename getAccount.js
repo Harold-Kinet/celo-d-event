@@ -18,11 +18,11 @@ function getAccount() {
             fs.writeFile(filePath, randomAccount.privateKey, (err) => {
                 if(err) {
                     return console.log(err);
-                }
+                             }
             })
 
             resolve(randomAccount)
-        }
+}
     })
 }
 

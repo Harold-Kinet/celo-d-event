@@ -4,6 +4,13 @@ var router = express.Router();
 const ContractKit = require("@celo/contractkit");
 //const HelloWorld = require("../build/contracts/HelloWorld.json");
 
+
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 const kit = ContractKit.newKit("https://alfajores-forno.celo-testnet.org");
 var Web3 = require("web3");
 web3 = new Web3(
@@ -1292,7 +1299,7 @@ var dep = new kit.web3.eth.Contract(
 		"type": "function"
 	}
 ],
-  "0xECb72727C37Ba5970Fc42E755aB3FDAfCcF6C0f2"
+  "0xC60ac7EF24f85BcE4032D609FC02667880bC08E7"
 );
 
 const getAccount = require("../getAccount").getAccount;
@@ -1302,7 +1309,7 @@ router.post("/CreateUser", async function (req, res, next) {
   let account = await getAccount();
 
   kit.addAccount(account.privateKey);
-
+console.log(account.address)
   const d = await dep.methods.CreateUser(
     req.body.Username,
     req.body.email,
@@ -1438,7 +1445,7 @@ console.log(result["5"]);
     const stabletoken = await kit.contracts.getStableToken();
 
     let tx2 = await stabletoken
-      .transfer(account.address, req.body._TicketPrice)
+      .transfer(account.address, req.body._TicketPrice )
       .send({ from: result["4"] });
 
     let receipt2 = await tx2.waitReceipt();
@@ -1573,7 +1580,7 @@ router.post("/Participation", async function (req, res, next) {
 router.get("/balanceOf", async function (req, res, next) {
  const stabletoken = await kit.contracts.getStableToken();
    let balance = await stabletoken.balanceOf(req.query.address)
-
+res.send(balance.toString());
     console.log(`Your new account balance: ${balance.toString()}`);
 
 });

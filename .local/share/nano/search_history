@@ -16,18 +16,23 @@ userWallet
 1501
 result
 creteus
-createuser
 query
 participation
 confirm
 addtick
-addticket
 organizersli
 organizerslis
 createproj
 getcoorg
 revenu
 indice
+createuser
+balance$
+balance
+addu
+createu
+addTick
+addticket
 
 
 
